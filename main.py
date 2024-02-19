@@ -1,9 +1,18 @@
 def main():
-    booklist=[]
-    file=open('books.txt','r')
-    line=file.readline()
+    try:
+        booklist=[]
+        file=open('books.txt','r')
+        line=file.readline()
 
-     
+        while line:
+            booklist.append(line.rstrip('\n').split(','))
+
+            line=file.readline()
+    except FileNotFoundError:
+        print("the books.txt file is not found")
+        print('Strating new books list!')
+
+        booklist=[]
 
     
     choice=0
